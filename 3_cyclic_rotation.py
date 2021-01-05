@@ -1,9 +1,9 @@
 # cyclic rotation
 
-def solution(A, k):
+def solution(A, K):
     result = [None] * len(A)
-    for i in range(0, len(A)):
-        result[(i+k) % len(A)] = A[i]
+    for i in range(len(A)):
+        result[(i + K) % len(A)] = A[i]  # new location = (i + K) % size
     return result
 
 

@@ -5,17 +5,18 @@ def solution(A):
     candidate = 0
 
     for item in A:
-        if consecutive_size == 0:
+        if consecutive_size == 0:  # stack is empty
             candidate = item
-            consecutive_size = 1
-        elif candidate == item:
             consecutive_size += 1
-        else:
+        elif candidate == item:  # found matched
+            consecutive_size += 1
+        else:  # found unmatched
             consecutive_size -= 1
 
     occurrence = A.count(candidate)
-    if occurrence > (len(A) / 2):
-        return A.index(candidate)
+
+    if occurrence > (len(A) / 2):  # check is leader
+        return A.index(candidate)  # return (any) index
     else:
         return -1
 
